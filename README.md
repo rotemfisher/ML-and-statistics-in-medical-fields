@@ -81,6 +81,7 @@ ML-and-statistics-in-medical-fields/
 ├── From_Gene_Expression_to_Clinical_Outcomes.pdf    # Full written report (paper format)
 ├── _Final_ML_and_statistics_in_medical_fields_slides.pdf   # Presentation slides
 │
+├── requirements.txt                       # All Python dependencies with pinned versions
 └── README.md
 ```
 
@@ -149,13 +150,31 @@ Raw Data (RNA-Seq + Clinical)
 
 ### Install Dependencies
 
+All dependencies are pinned in `requirements.txt`:
+
+| Package | Version | Purpose |
+|---------|---------|---------|
+| `pandas` | ≥ 2.0.0 | Data loading & manipulation |
+| `numpy` | ≥ 1.24.0 | Numerical operations |
+| `scikit-learn` | ≥ 1.3.0 | Preprocessing, PCA, train/test split |
+| `scikit-survival` | ≥ 0.22.0 | CoxPH, RSF, concordance index |
+| `optuna` | ≥ 3.4.0 | Hyperparameter tuning for RSF |
+| `matplotlib` | ≥ 3.7.0 | Plotting & visualizations |
+| `seaborn` | ≥ 0.12.0 | Statistical visualizations |
+| `lifelines` | ≥ 0.27.0 | Kaplan–Meier curves, Log-rank test |
+| `jupyter` | ≥ 1.0.0 | Notebook execution |
+
+Install everything in one command:
+
 ```bash
-pip install pandas numpy scikit-learn scikit-survival matplotlib seaborn optuna lifelines
+pip install -r requirements.txt
 ```
 
-Or using a requirements file (if provided):
+We recommend using a virtual environment to avoid dependency conflicts:
 
 ```bash
+python -m venv venv
+source venv/bin/activate        # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
